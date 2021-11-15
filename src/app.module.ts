@@ -2,8 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
-require('dotenv').config();
+import 'dotenv/config';
 
 @Module({
   imports: [
@@ -15,7 +14,7 @@ require('dotenv').config();
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
       entities: ['**/*.entity{.ts,.js}'],
-    })
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
